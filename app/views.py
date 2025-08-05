@@ -1,12 +1,6 @@
 from app import app
 from flask import render_template, url_for
-
-
-""" @app.route("/")
-def homepage():
-    nome = "Alex"
-    idade = 25
-    return render_template("index.html", nome=nome, idade=idade) """
+from flask import request
 
 
 @app.route("/")
@@ -16,8 +10,16 @@ def homepage():
     return render_template("index.html", context=context, teste=lista[0])
 
 
-@app.route("/sobre/")
-def sobre():
-    return render_template("sobre.html")
+@app.route("/contato/", methods=["GET", "POST"])
+def contato():
+    context = {}
+    if request.method == "GET":
+        pesquisa = request.args.get("pesquisa")
+        context.update({"pesquisa": pesquisa})
+        print("GET:", pesquisa)
+    if request.method == "POST":
+        pesquisa = request.form["pesquisa"]
+        print("POST:", pesquisa)
+    return render_template("contato.html", context=context)
 
 
