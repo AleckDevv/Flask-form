@@ -1,4 +1,6 @@
 from app import app
+from app import db
+from app.models import Contato
 from flask import render_template, url_for
 from flask import request
 
@@ -18,8 +20,18 @@ def contato():
         context.update({"pesquisa": pesquisa})
         print("GET:", pesquisa)
     if request.method == "POST":
-        pesquisa = request.form["pesquisa"]
-        print("POST:", pesquisa)
+        # salvando os dados que o usuário vai mandar
+        nome = request.form["nome"]
+        email = request.form["email"]
+        assunto = request.form["assunto"]
+        mensagem = request.form["mensagem"]
+        # data_time = request.form["year"]
+
+        # criando o objeto do contato
+        contato = Contato(nome=nome, email=email, assunto=assunto, mensagem=mensagem)
+
+        # add os dados no banco e fazendo o commit
+        db.session.add(contato)
+        db.session.commit()
+        # print("POST:", pesquisa)
     return render_template("contato.html", context=context)
-
-
