@@ -1,8 +1,7 @@
 from app import app
 from app import db
 from app.models import Contato
-from flask import render_template, url_for
-from flask import request
+from flask import render_template, url_for, request
 
 
 @app.route("/")
