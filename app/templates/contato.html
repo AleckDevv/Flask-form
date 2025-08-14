@@ -14,7 +14,7 @@
   <body>
     <div class="container">
       <div class="row mt-4">
-        <h3>Formulário Get</h3>                                                                                               
+        <h3>Pesquisar Contatos</h3>
       </div>
 
       <h1>Contato</h1>
@@ -37,7 +37,10 @@
       <hr />
       <hr />
       <div class="row">
-        <h3>Formulário POST</h3>
+        <div class="row mt-4">
+          <h3>Pesquisar Contatos</h3>
+        </div>
+        <h3>Cadastro</h3>
       </div>
 
       <form action="" method="post" class="row mt-4">
@@ -62,7 +65,7 @@
           />
         </div>
 
-        <div class="col-12">
+        <div class="col-11">
           Mensagem
           <input
             type="text"
@@ -74,7 +77,9 @@
         </div>
 
         <div class="col-12">
-          <button type="submit" class="btn btn-primary col-12">Enviar</button>
+          <button type="submit" class="enviar btn btn-primary col-12">
+            Enviar
+          </button>
         </div>
       </form>
     </div>
@@ -84,5 +89,7 @@
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>

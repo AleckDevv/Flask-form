@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, url_for
 
 # importando o sqlalchmey e o migrate
 from flask_sqlalchemy import SQLAlchemy
